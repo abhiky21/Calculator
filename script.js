@@ -10,7 +10,7 @@ var Num1 = 0,
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    display.innerHTML = "";
+    // display.innerHTML = "";
     display.textContent += button.textContent;
 
     calculation(button.textContent, button.getAttribute("aria-label" || ""));
