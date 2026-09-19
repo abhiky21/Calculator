@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+:root {
+  --page-top: #24263d;
+  --page-bottom: #151624;
+  --panel: #292b44;
+  --display: #171827;
+  --key: #3b3e5c;
+  --key-hover: #4a4d70;
+  --utility: #acb1c9;
+  --accent: #ff9f43;
+  --accent-hover: #ffb364;
+  --text: #f9faff;
+  --dark-text: #242638;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgb(113 103 187 / 32%),
+      transparent 28rem
+    ),
+    linear-gradient(145deg, var(--page-top), var(--page-bottom));
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+}
+
+.calculator {
+  width: min(100%, 370px);
+  padding: 20px;
+  border: 1px solid rgb(255 255 255 / 10%);
+  border-radius: 28px;
+  background: rgb(41 43 68 / 88%);
+  box-shadow: 0 24px 55px rgb(0 0 0 / 35%);
+  backdrop-filter: blur(12px);
+}
+
+.display {
+  min-height: 126px;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  overflow: hidden;
+  margin-bottom: 18px;
+  padding: 22px 18px;
+  border-radius: 18px;
+  background: var(--display);
+  color: var(--text);
+  font-size: clamp(2.8rem, 10vw, 4.25rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  box-shadow: inset 0 2px 6px rgb(0 0 0 / 28%);
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.key {
+  min-height: 61px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--key);
+  color: var(--text);
+  cursor: pointer;
+  font:
+    500 1.35rem/1 "DM Sans",
+    sans-serif;
+  transition:
+    transform 140ms ease,
+    background-color 140ms ease,
+    box-shadow 140ms ease;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 16%);
+}
+
+.key:hover {
+  background: var(--key-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 14px rgb(0 0 0 / 20%);
+}
+
+.key:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.key:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.key--utility {
+  background: var(--utility);
+  color: var(--dark-text);
+}
+
+.key--utility:hover {
+  background: #c3c7da;
+}
+
+.key--operator {
+  background: var(--accent);
+  color: #fff;
+  font-size: 1.6rem;
+}
+
+.key--operator:hover {
+  background: var(--accent-hover);
+}
+
+.key--zero {
+  grid-column: span 2;
+  text-align: left;
+  padding-left: 25px;
+}
+
+@media (max-width: 390px) {
+  body {
+    padding: 14px;
+  }
+
+  .calculator {
+    padding: 14px;
+    border-radius: 22px;
+  }
+
+  .keypad {
+    gap: 9px;
+  }
+
+  .key {
+    min-height: 56px;
+    border-radius: 14px;
+  }
+}
