@@ -8,12 +8,12 @@ var Num1 = 0,
   Operator = null,
   result = 0;
 
-let isVisible = false;
+let isVisible = true;
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     if (isVisible) {
-      display.textContent = "0";
+      display.textContent = "";
       isVisible = false;
     }
     display.textContent += button.textContent;
