@@ -1,5 +1,6 @@
 const display = document.querySelector(".display");
 const keypad = document.querySelector("#keypad");
+const ac = document.querySelector(".key--utility");
 
 const buttons = document.querySelectorAll("#keypad button");
 
@@ -20,6 +21,13 @@ buttons.forEach((button) => {
 
     calculation(button.textContent, button.getAttribute("aria-label" || ""));
   });
+});
+
+ac.addEventListener("click", () => {
+  if (ac.textContent == "AC") {
+    display.textContent = "0";
+    isVisible = true;
+  }
 });
 
 function calculation(value, attri) {
